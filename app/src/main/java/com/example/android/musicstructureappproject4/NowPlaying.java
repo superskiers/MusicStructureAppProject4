@@ -3,12 +3,13 @@ package com.example.android.musicstructureappproject4;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class NowPlaying extends AppCompatActivity {
 
-    //THIS IS A TEST VERSION
+    private Button playButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,6 @@ public class NowPlaying extends AppCompatActivity {
         setArtistName.setText(artist);
         setSongTitle.setText(song);
         setAlbumCover.setImageResource(coverImage);
-
     }
 
 }

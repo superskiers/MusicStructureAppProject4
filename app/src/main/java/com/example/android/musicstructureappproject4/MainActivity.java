@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Create ArrayList
         final ArrayList<Music> musicArrayList = new ArrayList<Music>();
+
         //Add to ArrayList
         musicArrayList.add(new Music(getString(R.string.artistNas), getString(R.string.songOneLove), R.drawable.albumnas));
         musicArrayList.add(new Music(getString(R.string.artistNas), getString(R.string.songAintHardtoTell), R.drawable.albumnas));
@@ -26,13 +27,16 @@ public class MainActivity extends AppCompatActivity {
         musicArrayList.add(new Music(getString(R.string.artistMarley), getString(R.string.songHeyBaby), R.drawable.albummarley));
         musicArrayList.add(new Music(getString(R.string.artistBIG), getString(R.string.songWhoShotYa), R.drawable.albumbiggie));
         musicArrayList.add(new Music(getString(R.string.artistBIG), getString(R.string.songUnbelievable), R.drawable.albumbiggie));
+
         //Bind ListView with MusicAdapter
         MusicAdapter adapter = new MusicAdapter(this, musicArrayList);
         final ListView listView = findViewById(R.id.listView);
         listView.setAdapter(adapter);
+
         //Initialize OnClick
         AdapterView.OnItemClickListener adaptListener = new
                 AdapterView.OnItemClickListener() {
+
                     //Set up Intents
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         Music music = musicArrayList.get(i);
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(myIntent);
                     }
                 };
+
         //Attach listener to listView
         listView.setOnItemClickListener(adaptListener);
     }

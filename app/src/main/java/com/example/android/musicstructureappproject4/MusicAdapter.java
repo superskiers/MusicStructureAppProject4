@@ -16,13 +16,11 @@ import java.util.ArrayList;
 
 public class MusicAdapter extends ArrayAdapter<Music> {
 
-    //private static final String LOG_TAG = MusicAdapter.class.getSimpleName();
-
-
+    //Custom constructor used to inflate the layout
     public MusicAdapter(Activity context, ArrayList<Music> musicArrayList) {
         super(context, 0, musicArrayList);
     }
-
+    //View for the position in the AdapterView
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //Check if existing view is being reused, otherwise inflate the view
@@ -32,6 +30,7 @@ public class MusicAdapter extends ArrayAdapter<Music> {
                     R.layout.layout, parent, false);
         }
 
+        //Get object located at this position in the list
         Music currentSong = getItem(position);
         //Fill the below Views with info from Music and apply to layoutView
         TextView songTextView = layoutView.findViewById(R.id.songNameTV);
@@ -42,9 +41,7 @@ public class MusicAdapter extends ArrayAdapter<Music> {
 
         ImageView albumImageView = layoutView.findViewById(R.id.albumImageView);
         albumImageView.setImageResource(currentSong.getAlbumImage());
-
+        //Return above info in layoutView
         return layoutView;
-
-
     }
 }

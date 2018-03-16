@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <dimen name="tresHunDP">300dp</dimen>
+    <dimen name="two5DP">25dp</dimen>
+    <dimen name="seizeDP">16dp</dimen>
+    <dimen name="three7DP">37dp</dimen>
+    <dimen name="eightEDP">80dp</dimen>
+    <dimen name="vingt4DP">24dp</dimen>
+</resources>

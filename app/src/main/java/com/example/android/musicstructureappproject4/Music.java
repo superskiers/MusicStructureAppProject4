@@ -9,6 +9,7 @@ public class Music {
     private String songName;
     private int albumImage;
 
+    //New Music object with 3 parameters
     public Music(String artistName, String songName, int albumImage) {
         this.artistName = artistName;
         this.songName = songName;
