@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MusicStructureAppProject4</string>
+
+    <string name="artistNas">NAS</string>
+    <string name="artistMarley">Stephen Marley</string>
+    <string name="artistBIG">Notorious B.I.G.</string>
+
+    <string name="songOneLove">One Love</string>
+    <string name="songTrafficJam">Traffic Jam</string>
+    <string name="songHeyBaby">Hey Baby</string>
+    <string name="songWhoShotYa">Who Shot Ya</string>
+    <string name="songAintHardtoTell">Ain\'t Hard to Tell</string>
+    <string name="songUnbelievable">Unbelievable</string>
+
+    <string name="nowPlaying">Now Playing</string>
+
+</resources>
