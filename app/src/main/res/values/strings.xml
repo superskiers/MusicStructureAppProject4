@@ -12,6 +12,6 @@
     <string name="songAintHardtoTell">Ain\'t Hard to Tell</string>
     <string name="songUnbelievable">Unbelievable</string>
 
-    <string name="nowPlaying">Now Playing</string>
+    <string name="nowPlaying">Now Playing selected Audio</string>
 
 </resources>

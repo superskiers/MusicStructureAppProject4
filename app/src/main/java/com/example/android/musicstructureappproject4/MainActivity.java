@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         musicArrayList.add(new Music(getString(R.string.artistBIG), getString(R.string.songUnbelievable), R.drawable.albumbiggie));
 
         //Bind ListView with MusicAdapter
-        MusicAdapter adapter = new MusicAdapter(this, musicArrayList);
+        MusicAdapterActivity adapter = new MusicAdapterActivity(this, musicArrayList);
         final ListView listView = findViewById(R.id.listView);
         listView.setAdapter(adapter);
 
@@ -40,11 +40,11 @@ public class MainActivity extends AppCompatActivity {
                     //Set up Intents
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         Music music = musicArrayList.get(i);
-                        Intent myIntent = new Intent(MainActivity.this, NowPlaying.class);
-                        myIntent.putExtra("songName", music.getSongName());
-                        myIntent.putExtra("artistName", music.getArtistName());
-                        myIntent.putExtra("albumImage", music.getAlbumImage());
-                        startActivity(myIntent);
+                        Intent nowPlayingIntent = new Intent(MainActivity.this, NowPlayingActivity.class);
+                        nowPlayingIntent.putExtra("songName", music.getSongName());
+                        nowPlayingIntent.putExtra("artistName", music.getArtistName());
+                        nowPlayingIntent.putExtra("albumImage", music.getAlbumImage());
+                        startActivity(nowPlayingIntent);
                     }
                 };
 

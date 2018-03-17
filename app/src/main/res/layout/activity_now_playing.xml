@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/Matches"
-    tools:context="com.example.android.musicstructureappproject4.NowPlaying">
-
+    android:contentDescription="CurrentAudioPlayingPage"
+    tools:context="com.example.android.musicstructureappproject4.NowPlayingActivity">
 
     <ImageView
         android:id="@+id/albumImageView"
