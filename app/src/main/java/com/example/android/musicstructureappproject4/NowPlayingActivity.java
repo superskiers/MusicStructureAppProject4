@@ -28,7 +28,7 @@ public class NowPlayingActivity extends AppCompatActivity {
         String song = intent.getStringExtra("songName");
         int coverImage = extras.getInt("albumImage");
 
-        //Set elements
+        //Set elements; artist, song and album cover image
         setArtistName.setText(artist);
         setSongTitle.setText(song);
         setAlbumCover.setImageResource(coverImage);
