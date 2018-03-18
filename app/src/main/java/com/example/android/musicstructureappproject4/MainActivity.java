@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Create ArrayList
-        final ArrayList<Music> musicArrayList = new ArrayList<Music>();
+        final ArrayList<Music> musicArrayList = new ArrayList<>();
 
         //Add to ArrayList
         musicArrayList.add(new Music(getString(R.string.artistNas), getString(R.string.songOneLove), R.drawable.albumnas));
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         musicArrayList.add(new Music(getString(R.string.artistBIG), getString(R.string.songUnbelievable), R.drawable.albumbiggie));
 
         //Bind ListView with MusicAdapter
-        MusicAdapterActivity adapter = new MusicAdapterActivity(this, musicArrayList);
+        MusicAdapter adapter = new MusicAdapter(this, musicArrayList);
         final ListView listView = findViewById(R.id.listView);
         listView.setAdapter(adapter);
 

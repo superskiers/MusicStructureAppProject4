@@ -3,13 +3,10 @@ package com.example.android.musicstructureappproject4;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class NowPlayingActivity extends AppCompatActivity {
-
-    private Button playButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
