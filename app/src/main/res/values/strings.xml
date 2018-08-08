@@ -13,5 +13,7 @@
     <string name="songUnbelievable">Unbelievable</string>
 
     <string name="nowPlaying">Now Playing selected Audio</string>
+    <string name="now_playing_activity">Song now playing</string>
+    <string name="music_library">List of music</string>
 
 </resources>

@@ -2,47 +2,47 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/Matches"
-    android:contentDescription="CurrentAudioPlayingPage"
+    style="@style/all_match_parent"
+    android:contentDescription="@string/now_playing_activity"
     tools:context="com.example.android.musicstructureappproject4.NowPlayingActivity">
 
     <ImageView
-        android:id="@+id/albumImageView"
+        android:id="@+id/image_view_album_cover"
         android:layout_width="match_parent"
         android:layout_height="@dimen/tresHunDP"
-        android:layout_marginTop="@dimen/two5DP"/>
+        android:layout_marginTop="@dimen/two5DP" />
 
     <TextView
-        android:id="@+id/songNameTV"
-        style="@style/NowPlayingText"
-        android:textStyle="bold"
-        android:layout_marginTop="@dimen/seizeDP"/>
+        android:id="@+id/text_view_song_name"
+        style="@style/now_playing_text_view"
+        android:layout_marginTop="@dimen/seizeDP"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/artistNameTV"
-        style="@style/NowPlayingText"
-        android:layout_marginTop="@dimen/three7DP"/>
+        android:id="@+id/text_view_artist_name"
+        style="@style/now_playing_text_view"
+        android:layout_marginTop="@dimen/three7DP" />
 
 
     <Button
-        android:id="@+id/playButton"
-        style="@style/ThatsAWrap"
+        android:id="@+id/button_play"
+        style="@style/all_wrap_content"
         android:background="@drawable/playbutton1"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/seizeDP"/>
 
     <Button
-        android:id="@+id/pauseButton"
-        style="@style/ThatsAWrap"
+        android:id="@+id/button_pause"
+        style="@style/all_wrap_content"
         android:background="@drawable/pausebutton1"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="@dimen/vingt4DP"
         android:layout_marginBottom="@dimen/seizeDP"/>
 
     <Button
-        android:id="@+id/replayButton"
-        style="@style/ThatsAWrap"
+        android:id="@+id/button_replay"
+        style="@style/all_wrap_content"
         android:background="@drawable/replaybutton1"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"

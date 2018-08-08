@@ -33,13 +33,13 @@ public class MusicAdapter extends ArrayAdapter<Music> {
         //Get object located at this position in the list
         Music currentSong = getItem(position);
         //Fill the below Views with info from Music and apply to layoutView
-        TextView songTextView = layoutView.findViewById(R.id.songNameTV);
+        TextView songTextView = layoutView.findViewById(R.id.text_view_song_name);
         songTextView.setText(currentSong.getSongName());
 
-        TextView artistTextView = layoutView.findViewById(R.id.artistNameTV);
+        TextView artistTextView = layoutView.findViewById(R.id.text_view_artist_name);
         artistTextView.setText(currentSong.getArtistName());
 
-        ImageView albumImageView = layoutView.findViewById(R.id.albumImageView);
+        ImageView albumImageView = layoutView.findViewById(R.id.image_view_album_cover);
         albumImageView.setImageResource(currentSong.getAlbumImage());
         //Return above info in layoutView
         return layoutView;

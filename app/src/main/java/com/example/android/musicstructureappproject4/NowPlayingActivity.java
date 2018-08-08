@@ -17,9 +17,9 @@ public class NowPlayingActivity extends AppCompatActivity {
          getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //View components
-        ImageView setAlbumCover = findViewById(R.id.albumImageView);
-        TextView setSongTitle = findViewById(R.id.songNameTV);
-        TextView setArtistName = findViewById(R.id.artistNameTV);
+        ImageView setAlbumCover = findViewById(R.id.image_view_album_cover);
+        TextView setSongTitle = findViewById(R.id.text_view_song_name);
+        TextView setArtistName = findViewById(R.id.text_view_artist_name);
 
         //Get Intent and populate layout
         Intent intent = getIntent();

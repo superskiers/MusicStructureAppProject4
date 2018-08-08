@@ -3,13 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/Matches"
-    android:contentDescription="MusicLibrary"
+    style="@style/all_match_parent"
+    android:orientation="vertical"
+    android:contentDescription="@string/music_library"
     tools:context="com.example.android.musicstructureappproject4.MainActivity">
 
+    <ImageView
+        android:id="@+id/image_view_album_cover"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tresHunDP" />
+
     <ListView
-        android:id="@+id/listView"
-        style="@style/Matches"
+        android:id="@+id/list_view"
+        style="@style/all_match_parent"
         android:cacheColorHint="?android:attr/colorBackgroundCacheHint"
         android:divider="?android:attr/listDivider"
         android:scrollbars="vertical" />

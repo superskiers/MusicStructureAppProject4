@@ -8,20 +8,21 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <!-- NowPlaying XML TextViews-->
-    <style name="NowPlayingText">
+    <style name="now_playing_text_view">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/vingtSP</item>
-        <item name="android:layout_below">@id/albumImageView</item>
+        <item name="android:layout_below">@id/image_view_album_cover</item>
         <item name="android:layout_centerHorizontal">true</item>
     </style>
     <!-- Anything that requires height and width to be wrap_content-->
-    <style name="ThatsAWrap">
+    <style name="all_wrap_content">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
     </style>
+
     <!-- Anything that requires height and width to be match_parent-->
-    <style name="Matches">
+    <style name="all_match_parent">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
     </style>
