@@ -1,1 +1,10 @@
-This is a MusicStructure App, Project 4, used to show ArrayList and intents.
+
+Project 4 from Udacity's Android Basics Nanodegree by Google is the Musical Structure App.
+The goal is to design and layout the flow for the structure of a MusicPlayer app. 
+For this project, the app does not actually need to play music. However, in combining various ideas
+and skills learned through the course it must demonstrate the following:
+ - Use explicit Intents to link between activities in the app
+ - Use OnClickListeners to add behavior to buttons using Java Code
+ - Create my own Custom Class
+ - Loop through an ArrayList
+ - Populate a ListView or GridView with an ArrayAdapter
