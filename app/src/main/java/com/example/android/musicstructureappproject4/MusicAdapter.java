@@ -20,25 +20,27 @@ public class MusicAdapter extends ArrayAdapter<Music> {
     public MusicAdapter(Activity context, ArrayList<Music> musicArrayList) {
         super(context, 0, musicArrayList);
     }
+
     //View for the position in the AdapterView
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //Check if existing view is being reused, otherwise inflate the view
         View layoutView = convertView;
+        //If View is null, inflate it using layout
         if (layoutView == null) {
             layoutView = LayoutInflater.from(getContext()).inflate(
                     R.layout.layout, parent, false);
         }
 
-        //Get object located at this position in the list
+        //Get the current song (object) located at this position in the list
         Music currentSong = getItem(position);
-        //Fill the below Views with info from Music and apply to layoutView
+        //Set the song title to the view
         TextView songTextView = layoutView.findViewById(R.id.text_view_song_name);
         songTextView.setText(currentSong.getSongName());
-
+        //Set the artist name to the view
         TextView artistTextView = layoutView.findViewById(R.id.text_view_artist_name);
         artistTextView.setText(currentSong.getArtistName());
-
+        //Set the album image to the view
         ImageView albumImageView = layoutView.findViewById(R.id.image_view_album_cover);
         albumImageView.setImageResource(currentSong.getAlbumImage());
         //Return above info in layoutView

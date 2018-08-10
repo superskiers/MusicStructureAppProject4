@@ -3,8 +3,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/lightGrey</item>
+        <item name="colorPrimaryDark">@color/darkGrey</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <!-- NowPlaying XML TextViews-->
@@ -25,6 +25,12 @@
     <style name="all_match_parent">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <!--Buttons in NowPlaying Activity-->
+    <style name="buttons_now_playing_activity">
+        <item name="android:layout_height">@dimen/forty8DP</item>
+        <item name="android:layout_width">@dimen/forty8DP</item>
     </style>
 
 </resources>

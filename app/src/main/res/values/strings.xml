@@ -4,6 +4,7 @@
     <string name="artistNas">NAS</string>
     <string name="artistMarley">Stephen Marley</string>
     <string name="artistBIG">Notorious B.I.G.</string>
+    <string name="artistJayZ">Jay-Z</string>
 
     <string name="songOneLove">One Love</string>
     <string name="songTrafficJam">Traffic Jam</string>
@@ -11,9 +12,14 @@
     <string name="songWhoShotYa">Who Shot Ya</string>
     <string name="songAintHardtoTell">Ain\'t Hard to Tell</string>
     <string name="songUnbelievable">Unbelievable</string>
+    <string name="songTakeOver">Take Over</string>
+    <string name="songSupaUgly">Supa Ugly</string>
 
     <string name="nowPlaying">Now Playing selected Audio</string>
     <string name="now_playing_activity">Song now playing</string>
     <string name="music_library">List of music</string>
+    <string name="toast_msg_play_btn">Play Button Clicked</string>
+    <string name="toast_msg_pause_btn">Pause Button Clicked</string>
+    <string name="toast_msg_replay_btn">Restart Button Clicked</string>
 
 </resources>

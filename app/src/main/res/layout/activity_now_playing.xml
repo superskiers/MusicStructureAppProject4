@@ -10,7 +10,7 @@
         android:id="@+id/image_view_album_cover"
         android:layout_width="match_parent"
         android:layout_height="@dimen/tresHunDP"
-        android:layout_marginTop="@dimen/two5DP" />
+        android:layout_marginTop="@dimen/vingt4DP" />
 
     <TextView
         android:id="@+id/text_view_song_name"
@@ -21,29 +21,29 @@
     <TextView
         android:id="@+id/text_view_artist_name"
         style="@style/now_playing_text_view"
-        android:layout_marginTop="@dimen/three7DP" />
+        android:layout_marginTop="@dimen/three6DP" />
 
 
     <Button
         android:id="@+id/button_play"
-        style="@style/all_wrap_content"
-        android:background="@drawable/playbutton1"
+        style="@style/buttons_now_playing_activity"
+        android:background="@drawable/ic_play_arrow"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/seizeDP"/>
 
     <Button
         android:id="@+id/button_pause"
-        style="@style/all_wrap_content"
-        android:background="@drawable/pausebutton1"
+        style="@style/buttons_now_playing_activity"
+        android:background="@drawable/ic_pause"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="@dimen/vingt4DP"
         android:layout_marginBottom="@dimen/seizeDP"/>
 
     <Button
         android:id="@+id/button_replay"
-        style="@style/all_wrap_content"
-        android:background="@drawable/replaybutton1"
+        style="@style/buttons_now_playing_activity"
+        android:background="@drawable/ic_replay"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/vingt4DP"
