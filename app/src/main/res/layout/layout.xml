@@ -5,14 +5,14 @@
 
     <ImageView
         android:id="@+id/image_view_album_cover"
-        android:layout_width="@dimen/eightEDP"
-        android:layout_height="@dimen/eightEDP"/>
+        android:layout_width="@dimen/eighty_dp"
+        android:layout_height="@dimen/eighty_dp"/>
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:paddingLeft="@dimen/seizeDP"
+        android:paddingLeft="@dimen/seize_dp"
         android:orientation="vertical">
 
         <TextView

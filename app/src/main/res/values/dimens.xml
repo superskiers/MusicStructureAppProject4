@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="vingtSP">20sp</dimen>
-    <dimen name="tresHunDP">300dp</dimen>
-    <dimen name="seizeDP">16dp</dimen>
-    <dimen name="three6DP">36dp</dimen>
-    <dimen name="forty8DP">48dp</dimen>
-    <dimen name="eightEDP">80dp</dimen>
-    <dimen name="vingt4DP">24dp</dimen>
+    <dimen name="three_hun_dp">300dp</dimen>
+    <dimen name="seize_dp">16dp</dimen>
+    <dimen name="thirty6_dp">36dp</dimen>
+    <dimen name="forty8_dp">48dp</dimen>
+    <dimen name="eighty_dp">80dp</dimen>
+    <dimen name="twenty4_dp">24dp</dimen>
 </resources>

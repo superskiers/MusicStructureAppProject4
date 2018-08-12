@@ -31,7 +31,6 @@ public class MusicAdapter extends ArrayAdapter<Music> {
             layoutView = LayoutInflater.from(getContext()).inflate(
                     R.layout.layout, parent, false);
         }
-
         //Get the current song (object) located at this position in the list
         Music currentSong = getItem(position);
         //Set the song title to the view

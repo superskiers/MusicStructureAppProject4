@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/image_view_album_cover"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/tresHunDP" />
+        android:layout_height="@dimen/three_hun_dp" />
 
     <ListView
         android:id="@+id/list_view"

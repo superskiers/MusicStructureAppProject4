@@ -11,7 +11,7 @@
     <style name="now_playing_text_view">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/vingtSP</item>
+        <item name="android:textSize">@dimen/twenty4_dp</item>
         <item name="android:layout_below">@id/image_view_album_cover</item>
         <item name="android:layout_centerHorizontal">true</item>
     </style>
@@ -29,8 +29,8 @@
 
     <!--Buttons in NowPlaying Activity-->
     <style name="buttons_now_playing_activity">
-        <item name="android:layout_height">@dimen/forty8DP</item>
-        <item name="android:layout_width">@dimen/forty8DP</item>
+        <item name="android:layout_height">@dimen/forty8_dp</item>
+        <item name="android:layout_width">@dimen/forty8_dp</item>
     </style>
 
 </resources>
