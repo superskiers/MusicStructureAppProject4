@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,15 +21,15 @@ public class MainActivity extends AppCompatActivity {
         //Create ArrayList
         final ArrayList<Music> musicArrayList = new ArrayList<>();
 
-        //Add to ArrayList
-        musicArrayList.add(new Music(getString(R.string.artistNas), getString(R.string.songOneLove), R.drawable.albumnas));
-        musicArrayList.add(new Music(getString(R.string.artistBIG), getString(R.string.songWhoShotYa), R.drawable.albumbiggie));
-        musicArrayList.add(new Music(getString(R.string.artistJayZ), getString(R.string.songSupaUgly), R.drawable.jayzalbum));
-        musicArrayList.add(new Music(getString(R.string.artistMarley), getString(R.string.songHeyBaby), R.drawable.albummarley));
-        musicArrayList.add(new Music(getString(R.string.artistNas), getString(R.string.songAintHardtoTell), R.drawable.albumnas));
-        musicArrayList.add(new Music(getString(R.string.artistJayZ), getString(R.string.songTakeOver), R.drawable.jayzalbum));
-        musicArrayList.add(new Music(getString(R.string.artistMarley), getString(R.string.songTrafficJam), R.drawable.albummarley));
-        musicArrayList.add(new Music(getString(R.string.artistBIG), getString(R.string.songUnbelievable), R.drawable.albumbiggie));
+        //Add items to ArrayList
+        musicArrayList.add(new Music(getString(R.string.artistNas), getString(R.string.songOneLove), R.drawable.albumnas, R.raw.colliebuddzcomearoundreggae80));
+        musicArrayList.add(new Music(getString(R.string.artistBIG), getString(R.string.songWhoShotYa), R.drawable.albumbiggie, R.raw.stephenmarleyheybabyreggae80));
+        musicArrayList.add(new Music(getString(R.string.artistJayZ), getString(R.string.songSupaUgly), R.drawable.jayzalbum, R.raw.wayne_smith_under_me_sleng_teng));
+        musicArrayList.add(new Music(getString(R.string.artistMarley), getString(R.string.songHeyBaby), R.drawable.albummarley, R.raw.colliebuddzcomearoundreggae80));
+        musicArrayList.add(new Music(getString(R.string.artistNas), getString(R.string.songAintHardtoTell), R.drawable.albumnas, R.raw.wayne_smith_under_me_sleng_teng));
+        musicArrayList.add(new Music(getString(R.string.artistJayZ), getString(R.string.songTakeOver), R.drawable.jayzalbum, R.raw.stephenmarleyheybabyreggae80));
+        musicArrayList.add(new Music(getString(R.string.artistMarley), getString(R.string.songTrafficJam), R.drawable.albummarley, R.raw.colliebuddzcomearoundreggae80));
+        musicArrayList.add(new Music(getString(R.string.artistBIG), getString(R.string.songUnbelievable), R.drawable.albumbiggie, R.raw.stephenmarleyheybabyreggae80));
 
         //Bind ListView with MusicAdapter
         MusicAdapter adapter = new MusicAdapter(this, musicArrayList);
@@ -42,13 +43,15 @@ public class MainActivity extends AppCompatActivity {
                 AdapterView.OnItemClickListener() {
 
                     //Set up Intents
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                         //Get the current selection
-                        Music music = musicArrayList.get(i);
+                        Music music = musicArrayList.get(position);
                         Intent nowPlayingIntent = new Intent(MainActivity.this, NowPlayingActivity.class);
                         nowPlayingIntent.putExtra("songName", music.getSongName());
                         nowPlayingIntent.putExtra("artistName", music.getArtistName());
                         nowPlayingIntent.putExtra("albumImage", music.getAlbumImage());
+                        nowPlayingIntent.putExtra("songPlaying", music.getmAudioResourceId());
+
                         startActivity(nowPlayingIntent);
                     }
                 };
@@ -68,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
                 nowPlayingIntent.putExtra("songName", music.getSongName());
                 nowPlayingIntent.putExtra("artistName", music.getArtistName());
                 nowPlayingIntent.putExtra("albumImage", music.getAlbumImage());
+                nowPlayingIntent.putExtra("songPlaying", music.getmAudioResourceId());
+
                 startActivity(nowPlayingIntent);
             }
         });

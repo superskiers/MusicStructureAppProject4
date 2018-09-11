@@ -21,7 +21,20 @@
     <TextView
         android:id="@+id/text_view_artist_name"
         style="@style/now_playing_text_view"
-        android:layout_marginTop="@dimen/thirty6_dp" />
+        android:layout_marginTop="@dimen/forty2_dp" />
+
+    <SeekBar
+        android:layout_marginTop="@dimen/seize_dp"
+        android:layout_below="@id/text_view_artist_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBar"/>
+
+    <TextView
+        android:layout_below="@id/seekBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sample_text_view" />
 
 
     <Button
@@ -48,7 +61,6 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/twenty4_dp"
         android:layout_marginBottom="@dimen/seize_dp"/>
-
 
 
 </RelativeLayout>

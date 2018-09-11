@@ -1,29 +1,56 @@
 package com.example.android.musicstructureappproject4;
 
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class NowPlayingActivity extends AppCompatActivity {
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
-    private TextView mButtonPlay, mButtonPause, mButtonReplay;
+public class NowPlayingActivity extends MainActivity {
+
+    private static final String TAG = "NowPlayingActivity";
+
+    //Declare TextViews
+    private TextView mButtonPlay, mButtonPause, mButtonReset, mSampleTextView;
+    //Media player object
+    private MediaPlayer mMediaPlayer;
+    //Handles audio focus while playing sound file
+    private AudioManager mAudioManager;
+
+    //MediaPlayer support
+    private double startTime = 0;
+    private double finalTime = 0;
+    private int totalTime;
+
+    private Handler myHandler = new Handler();
+    private SeekBar mSeekbar;
+    private static int oneTimeOnly = 0;
+    private boolean isUserSeeking;
+    private Runnable mRunnable;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_now_playing);
 
-        //Initialize Buttons for Toast msg
+        //Initialize Buttons
         mButtonPlay = findViewById(R.id.button_play);
         mButtonPause = findViewById(R.id.button_pause);
-        mButtonReplay = findViewById(R.id.button_replay);
+        mButtonReset = findViewById(R.id.button_replay);
+        mSampleTextView = findViewById(R.id.sample_text_view);
+        mSeekbar = findViewById(R.id.seekBar);
 
         //Navigation back to home screen
-         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //View components
         ImageView setAlbumCover = findViewById(R.id.image_view_album_cover);
@@ -36,6 +63,9 @@ public class NowPlayingActivity extends AppCompatActivity {
         String artist = intent.getStringExtra("artistName");
         String song = intent.getStringExtra("songName");
         int coverImage = extras.getInt("albumImage");
+        int currentSong = extras.getInt("songPlaying", 0);
+        //Initialize mediaPlayer and indicate which song
+        mMediaPlayer = MediaPlayer.create(NowPlayingActivity.this, currentSong);
 
         //Set elements; artist, song and album cover image
         setArtistName.setText(artist);
@@ -47,21 +77,129 @@ public class NowPlayingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(NowPlayingActivity.this, R.string.toast_msg_play_btn, Toast.LENGTH_SHORT).show();
+                mMediaPlayer.start();
+                //mSeekbar.setProgress((int) startTime);
+                finalTime = mMediaPlayer.getDuration();
+                startTime = mMediaPlayer.getCurrentPosition();
+
+                if (oneTimeOnly == 0) {
+                    mSeekbar.setMax((int) finalTime);
+                    oneTimeOnly = 1;
+//                    updateSongTime();
+                }
+                mSeekbar.setProgress((int) startTime);
+                myHandler.postDelayed(UpdateSongTime, 100);
+                timeForSampleTextView();
             }
         });
+
         mButtonPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(NowPlayingActivity.this, R.string.toast_msg_pause_btn, Toast.LENGTH_SHORT).show();
+                mMediaPlayer.pause();
             }
         });
-        mButtonReplay.setOnClickListener(new View.OnClickListener() {
+        mButtonReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(NowPlayingActivity.this, R.string.toast_msg_replay_btn, Toast.LENGTH_SHORT).show();
+                mMediaPlayer.reset();
+                mMediaPlayer.start();
+            }
+        });
+        //Set up mSeekBar
+        mSeekbar.setMax(mMediaPlayer.getDuration());
+        mSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (fromUser) {
+                    mMediaPlayer.seekTo(progress);
+                    mSeekbar.setProgress(progress);
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
     }
+    //Set up TextView to display current time in song
+        public void timeForSampleTextView() {
+        mSampleTextView.setText(String.format(Locale.getDefault(), "%d min, %d sec",
+                TimeUnit.MILLISECONDS.toMinutes((long) startTime),
+                TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
+                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.
+                                toMinutes((long) startTime))));
+    }
 
-}
+    //Empty public constructor
+    public NowPlayingActivity() {
+    }
+
+    //Release audio resource when activity is stopped
+    @Override
+    public void onStop() {
+        super.onStop();
+        mMediaPlayer.pause();
+    }
+
+    private Runnable UpdateSongTime = new Runnable() {
+        public void run() {
+            startTime = mMediaPlayer.getCurrentPosition();
+            mSeekbar.setProgress((int)startTime);
+            mSampleTextView.setText(String.format(Locale.getDefault(), "%d min, %d sec",
+                    TimeUnit.MILLISECONDS.toMinutes((long) startTime),
+                    TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
+                            TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.
+                                    toMinutes((long) startTime)))
+            );
+            mSeekbar.setProgress((int)startTime);
+            myHandler.postDelayed(this, 100);
+        }
+    };
+
+
+//    private void updateSongTime() {
+//       // startTime = mMediaPlayer.getCurrentPosition();
+//        mSeekbar.setProgress(mMediaPlayer.getCurrentPosition());
+//        // mSeekbar.setMax(mMediaPlayer.getDuration());
+////        timeForSampleTextView();
+//        mSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+//            @Override
+//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//                if (fromUser) {
+//                    mMediaPlayer.seekTo(progress * 1000);
+//                   ///THIS IS THE SPOT TO ADD THE TEXTVIEW UPDATE
+//                }
+//                mSeekbar.setProgress((int) startTime);
+                //myHandler.postDelayed(this, 100);
+//            }
+//
+//            @Override
+//            public void onStartTrackingTouch(SeekBar seekBar) {
+//            }
+//
+//            @Override
+//            public void onStopTrackingTouch(SeekBar seekBar) {
+//                seekBar.getMax();
+//            }
+//        });
+//    }
+//    private void changeSeekBar() {
+//        mSeekbar.setProgress(mMediaPlayer.getCurrentPosition());
+//        if(mMediaPlayer.isPlaying()){
+//            Runnable runnable = new Runnable() {
+//                @Override
+//                public void run() {
+//                    changeSeekBar();
+//                }
+//            };
+//            myHandler.postDelayed(runnable, 1000);
+//        }
+    }
 

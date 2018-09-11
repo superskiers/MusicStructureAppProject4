@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class MusicAdapter extends ArrayAdapter<Music> {
 
+
     //Custom constructor used to inflate the layout
     public MusicAdapter(Activity context, ArrayList<Music> musicArrayList) {
         super(context, 0, musicArrayList);
@@ -42,6 +43,8 @@ public class MusicAdapter extends ArrayAdapter<Music> {
         //Set the album image to the view
         ImageView albumImageView = layoutView.findViewById(R.id.image_view_album_cover);
         albumImageView.setImageResource(currentSong.getAlbumImage());
+
+
         //Return above info in layoutView
         return layoutView;
     }
