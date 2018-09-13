@@ -9,4 +9,6 @@
     <dimen name="twenty4_dp">24dp</dimen>
     <dimen name="eight_dp">8dp</dimen>
     <dimen name="forty2_dp">42dp</dimen>
+    <dimen name="cent24_dp">124dp</dimen>
+    <dimen name="sixty4_dp">64dp</dimen>
 </resources>

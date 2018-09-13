@@ -44,7 +44,6 @@ public class MusicAdapter extends ArrayAdapter<Music> {
         ImageView albumImageView = layoutView.findViewById(R.id.image_view_album_cover);
         albumImageView.setImageResource(currentSong.getAlbumImage());
 
-
         //Return above info in layoutView
         return layoutView;
     }

@@ -24,44 +24,40 @@
         android:layout_marginTop="@dimen/forty2_dp" />
 
     <SeekBar
-        android:layout_marginTop="@dimen/seize_dp"
-        android:layout_below="@id/text_view_artist_name"
+        android:id="@+id/seekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/seekBar"/>
+        android:layout_below="@id/text_view_artist_name"
+        android:layout_marginTop="@dimen/seize_dp" />
 
     <TextView
-        android:layout_below="@id/seekBar"
+        android:id="@+id/sample_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/sample_text_view" />
+        android:layout_below="@id/seekBar" />
 
-
-    <Button
-        android:id="@+id/button_play"
-        style="@style/buttons_now_playing_activity"
-        android:background="@drawable/ic_play_arrow"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/seize_dp"/>
+        android:layout_below="@+id/sample_text_view"
+        android:layout_marginBottom="@dimen/seize_dp"
+        android:gravity="bottom"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/button_pause"
-        style="@style/buttons_now_playing_activity"
-        android:background="@drawable/ic_pause"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="@dimen/twenty4_dp"
-        android:layout_marginBottom="@dimen/seize_dp"/>
+        <Button
+            android:id="@+id/button_pause"
+            style="@style/buttons_now_playing_activity"
+            android:layout_marginLeft="@dimen/cent24_dp"
+            android:background="@drawable/ic_pause" />
 
-    <Button
-        android:id="@+id/button_replay"
-        style="@style/buttons_now_playing_activity"
-        android:background="@drawable/ic_replay"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/twenty4_dp"
-        android:layout_marginBottom="@dimen/seize_dp"/>
+        <Button
+            android:id="@+id/button_play"
+            style="@style/buttons_now_playing_activity"
+            android:layout_marginLeft="@dimen/sixty4_dp"
+            android:background="@drawable/ic_play_arrow" />
 
+    </LinearLayout>
 
 </RelativeLayout>
 

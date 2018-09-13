@@ -1,7 +1,6 @@
 package com.example.android.musicstructureappproject4;
 
 import android.content.Intent;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,26 +15,18 @@ import java.util.concurrent.TimeUnit;
 
 public class NowPlayingActivity extends MainActivity {
 
-    private static final String TAG = "NowPlayingActivity";
-
     //Declare TextViews
-    private TextView mButtonPlay, mButtonPause, mButtonReset, mSampleTextView;
+    private TextView mButtonPlay, mButtonPause;
+    private TextView mSampleTextView;
     //Media player object
     private MediaPlayer mMediaPlayer;
-    //Handles audio focus while playing sound file
-    private AudioManager mAudioManager;
-
+    //Declare SeekBar
+    private SeekBar mSeekbar;
     //MediaPlayer support
     private double startTime = 0;
     private double finalTime = 0;
-    private int totalTime;
-
     private Handler myHandler = new Handler();
-    private SeekBar mSeekbar;
     private static int oneTimeOnly = 0;
-    private boolean isUserSeeking;
-    private Runnable mRunnable;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +36,6 @@ public class NowPlayingActivity extends MainActivity {
         //Initialize Buttons
         mButtonPlay = findViewById(R.id.button_play);
         mButtonPause = findViewById(R.id.button_pause);
-        mButtonReset = findViewById(R.id.button_replay);
         mSampleTextView = findViewById(R.id.sample_text_view);
         mSeekbar = findViewById(R.id.seekBar);
 
@@ -64,6 +54,7 @@ public class NowPlayingActivity extends MainActivity {
         String song = intent.getStringExtra("songName");
         int coverImage = extras.getInt("albumImage");
         int currentSong = extras.getInt("songPlaying", 0);
+
         //Initialize mediaPlayer and indicate which song
         mMediaPlayer = MediaPlayer.create(NowPlayingActivity.this, currentSong);
 
@@ -85,14 +76,14 @@ public class NowPlayingActivity extends MainActivity {
                 if (oneTimeOnly == 0) {
                     mSeekbar.setMax((int) finalTime);
                     oneTimeOnly = 1;
-//                    updateSongTime();
+
                 }
                 mSeekbar.setProgress((int) startTime);
                 myHandler.postDelayed(UpdateSongTime, 100);
                 timeForSampleTextView();
             }
         });
-
+        //Initialize Pause Button
         mButtonPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,15 +91,7 @@ public class NowPlayingActivity extends MainActivity {
                 mMediaPlayer.pause();
             }
         });
-        mButtonReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(NowPlayingActivity.this, R.string.toast_msg_replay_btn, Toast.LENGTH_SHORT).show();
-                mMediaPlayer.reset();
-                mMediaPlayer.start();
-            }
-        });
-        //Set up mSeekBar
+        //Initialize mSeekBar
         mSeekbar.setMax(mMediaPlayer.getDuration());
         mSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -128,8 +111,9 @@ public class NowPlayingActivity extends MainActivity {
             }
         });
     }
+
     //Set up TextView to display current time in song
-        public void timeForSampleTextView() {
+    public void timeForSampleTextView() {
         mSampleTextView.setText(String.format(Locale.getDefault(), "%d min, %d sec",
                 TimeUnit.MILLISECONDS.toMinutes((long) startTime),
                 TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
@@ -148,58 +132,20 @@ public class NowPlayingActivity extends MainActivity {
         mMediaPlayer.pause();
     }
 
+    //This method will update the seekBar and mSampleText View every 100 milliseconds
     private Runnable UpdateSongTime = new Runnable() {
         public void run() {
             startTime = mMediaPlayer.getCurrentPosition();
-            mSeekbar.setProgress((int)startTime);
+            mSeekbar.setProgress((int) startTime);
             mSampleTextView.setText(String.format(Locale.getDefault(), "%d min, %d sec",
                     TimeUnit.MILLISECONDS.toMinutes((long) startTime),
                     TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
                             TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.
                                     toMinutes((long) startTime)))
             );
-            mSeekbar.setProgress((int)startTime);
+            mSeekbar.setProgress((int) startTime);
             myHandler.postDelayed(this, 100);
         }
     };
 
-
-//    private void updateSongTime() {
-//       // startTime = mMediaPlayer.getCurrentPosition();
-//        mSeekbar.setProgress(mMediaPlayer.getCurrentPosition());
-//        // mSeekbar.setMax(mMediaPlayer.getDuration());
-////        timeForSampleTextView();
-//        mSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-//            @Override
-//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//                if (fromUser) {
-//                    mMediaPlayer.seekTo(progress * 1000);
-//                   ///THIS IS THE SPOT TO ADD THE TEXTVIEW UPDATE
-//                }
-//                mSeekbar.setProgress((int) startTime);
-                //myHandler.postDelayed(this, 100);
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(SeekBar seekBar) {
-//            }
-//
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {
-//                seekBar.getMax();
-//            }
-//        });
-//    }
-//    private void changeSeekBar() {
-//        mSeekbar.setProgress(mMediaPlayer.getCurrentPosition());
-//        if(mMediaPlayer.isPlaying()){
-//            Runnable runnable = new Runnable() {
-//                @Override
-//                public void run() {
-//                    changeSeekBar();
-//                }
-//            };
-//            myHandler.postDelayed(runnable, 1000);
-//        }
-    }
-
+}
