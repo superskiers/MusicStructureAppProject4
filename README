@@ -1,10 +1,12 @@
 
 Project 4 from Udacity's Android Basics Nanodegree by Google is the Musical Structure App.
-The goal is to design and layout the flow for the structure of a MusicPlayer app. 
-For this project, the app does not actually need to play music. However, in combining various ideas
-and skills learned through the course it must demonstrate the following:
+The goal is to design and layout the flow for the structure of a MusicPlayer app. However, the original rubric did not require 
+a working MediaPlayer. After successfully completing the course i went back and added the MediaPlayer functionality.
+The original project was intended to demonstrate various ideas and skills learned through the course, including:
  - Use explicit Intents to link between activities in the app
  - Use OnClickListeners to add behavior to buttons using Java Code
  - Create my own Custom Class
  - Loop through an ArrayList
  - Populate a ListView or GridView with an ArrayAdapter
+ *It now includes the additional functionality of playing music!
+ 
